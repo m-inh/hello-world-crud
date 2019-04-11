@@ -38,13 +38,11 @@ const routeConfig = [
 const server = http.createServer((req, res) => {
     const location = url.parse(req.url);
     const foundConfig = routeConfig.find(route => route.path === location.pathname);
-    if (foundConfig) {
-        const message = (foundConfig.acts[req.method] || invalidMethod)();
-        console.log(message);
-        res.write(message);
-    } else {
-        console.log('URL not found!');
-    }
+    const message = foundConfig
+        ? (foundConfig.acts[req.method] || invalidMethod)()
+        : 'URL not found!';
+    console.log(message);
+    res.write(message);
     res.end();
 });
 
