@@ -1,6 +1,6 @@
 const http = require('http');
 const url = require('url');
-const host = 'localhost';
+const host = process.env.HOST;
 const port = process.env.PORT;
 
 function readWorld() {
