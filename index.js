@@ -1,7 +1,7 @@
 const http = require('http');
 const url = require('url');
 const host = 'localhost';
-const port = 2000;
+const port = process.env.PORT;
 
 function readWorld() {
     return 'world';
